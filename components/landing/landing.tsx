@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import LandingHeader from './landing-header'
 
 const ServiceCard = ({ title, description, imgUrl }) => (
   <div className="bg-white shadow-md p-6 rounded-lg">
@@ -12,16 +12,16 @@ const ServiceCard = ({ title, description, imgUrl }) => (
 const Intro = () => {
   const services = [
     {
-      title: 'Web Development',
-      description:
-        'We create high-quality, responsive, and scalable websites that are tailored to your business needs.',
-      imgUrl: 'assets/wd2.svg', // Replace with your image URL
-    },
-    {
       title: 'Data Engineering',
       description:
         'Our data engineering services help you harness the power of cloud services to efficiently and securely transform, store, and analyze your data.',
       imgUrl: 'assets/de.svg', // Replace with your image URL
+    },
+    {
+      title: 'Web Development',
+      description:
+        'We create high-quality, responsive, and scalable websites that are tailored to your business needs.',
+      imgUrl: 'assets/wd2.svg', // Replace with your image URL
     },
     {
       title: 'Data Analytics',
@@ -33,19 +33,7 @@ const Intro = () => {
 
   return (
     <div>
-      <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-        <h1 className="text-5xl md:text-5xl tracking-tighter leading-tight md:pr-8">
-          Ho'onui Technologies LLC
-        </h1>
-        <nav className="flex items-center space-x-4">
-          <a className="text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-150">
-            About
-          </a>
-          <a className="text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-150">
-            Contact
-          </a>
-        </nav>
-      </section>
+      <LandingHeader />
 
       <section className="pt-10 pb-10 mt-16 mb-16 md:mb-12">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight md:pr-8">
