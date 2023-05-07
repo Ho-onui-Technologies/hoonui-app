@@ -3,25 +3,29 @@ import { EXAMPLE_PATH } from '../lib/constants'
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-50 border-t border-neutral-200">
+    <footer className="bg-neutral-200 border-t border-neutral-200">
       <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
+        <div className="py-28 flex-col md:flex-row flex items-center md:justify-between">
+          <div className="w-full sm:w-auto text-center sm:text-left mb-4 sm:mb-0">
+            <h3 className="font-bold text-xl mb-2">Ho'onui Technologies LLC</h3>
+            <p>Located in Honolulu, HI</p>
+          </div>
+          <div className="w-full sm:w-auto text-center sm:text-right">
+            <h3 className="font-bold text-xl mb-2">
+              Contact Us
+            </h3>
+            <p className="mb-1">
+              <span className="font-bold">Phone:</span> (808) 348-5018
+            </p>
+            <p>
+              <span className="font-bold">Email:</span>{' '}
+              <a
+                href="mailto:info@hoonuitech.dev"
+                className="text-blue-400 hover:text-blue-600"
+              >
+                info@hoonuitech.dev
+              </a>
+            </p>
           </div>
         </div>
       </Container>
