@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import LandingHeader from './landing-header'
+import LandingHeader from './landing-header';0
 
 const ServiceCard = ({ title, description, imgUrl }) => (
   <div className="bg-white shadow-md p-6 rounded-lg">
