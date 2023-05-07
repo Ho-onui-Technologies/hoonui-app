@@ -15,15 +15,15 @@ const Footer = () => {
               Contact Us
             </h3>
             <p className="mb-1">
-              <span className="font-bold">Phone:</span> (808) 348-5018
+              <span className="font-bold">Phone:</span> (098) 123-4567
             </p>
             <p>
               <span className="font-bold">Email:</span>{' '}
               <a
-                href="mailto:info@hoonuitech.dev"
+                href="mailto:info@notarealemail.io"
                 className="text-blue-400 hover:text-blue-600"
               >
-                info@hoonuitech.dev
+                info@notarealemail.io
               </a>
             </p>
           </div>
