@@ -20,10 +20,10 @@ const Footer = () => {
             <p>
               <span className="font-bold">Email:</span>{' '}
               <a
-                href="mailto:info@notarealemail.io"
+                href="mailto:info@hoonuitechnologies.dev"
                 className="text-blue-400 hover:text-blue-600"
               >
-                info@notarealemail.io
+                info@hoonuitechnologies.dev
               </a>
             </p>
           </div>

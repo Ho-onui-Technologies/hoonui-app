@@ -21,7 +21,7 @@ const LandingHeader = () => {
         </a>
         <div>
           <a
-            href="mailto:info@notarealemail.io"
+            href="mailto:info@hoonuitechnologies.dev"
             className="text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-150"
           >
             Contact
