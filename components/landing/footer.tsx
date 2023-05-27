@@ -15,7 +15,7 @@ const Footer = () => {
               Contact Us
             </h3>
             <p className="mb-1">
-              <span className="font-bold">Phone:</span> (098) 123-4567
+              <span className="font-bold">Phone:</span> (808) 348-5018
             </p>
             <p>
               <span className="font-bold">Email:</span>{' '}
