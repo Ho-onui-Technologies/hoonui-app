@@ -12,10 +12,10 @@ const ServiceCard = ({ title, description, imgUrl }) => (
 const Intro = () => {
   const services = [
     {
-      title: 'Data Engineering',
+      title: 'Data Analytics',
       description:
-        'Our data engineering services help you harness the power of cloud services to efficiently and securely transform, store, and analyze your data.',
-      imgUrl: 'assets/de.svg',
+        'We provide data-driven insights and help businesses make better decisions using advanced analytics techniques and tools.',
+      imgUrl: 'assets/da.svg',
     },
     {
       title: 'Web Development',
@@ -24,10 +24,10 @@ const Intro = () => {
       imgUrl: 'assets/wd2.svg',
     },
     {
-      title: 'Data Analytics',
+      title: 'Data Engineering',
       description:
-        'We provide data-driven insights and help businesses make better decisions using advanced analytics techniques and tools.',
-      imgUrl: 'assets/da.svg',
+        'Our data engineering services help you harness the power of cloud services to efficiently and securely transform, store, and analyze your data.',
+      imgUrl: 'assets/de.svg',
     },
   ];
 
