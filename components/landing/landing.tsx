@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import LandingHeader from './landing-header';0
+import LandingHeader from './landing-header';
 
 const ServiceCard = ({ title, description, imgUrl }) => (
   <div className="bg-white shadow-md p-6 rounded-lg">
@@ -15,19 +15,19 @@ const Intro = () => {
       title: 'Data Engineering',
       description:
         'Our data engineering services help you harness the power of cloud services to efficiently and securely transform, store, and analyze your data.',
-      imgUrl: 'assets/de.svg', // Replace with your image URL
+      imgUrl: 'assets/de.svg',
     },
     {
       title: 'Web Development',
       description:
         'We create high-quality, responsive, and scalable websites that are tailored to your business needs.',
-      imgUrl: 'assets/wd2.svg', // Replace with your image URL
+      imgUrl: 'assets/wd2.svg',
     },
     {
       title: 'Data Analytics',
       description:
         'We provide data-driven insights and help businesses make better decisions using advanced analytics techniques and tools.',
-      imgUrl: 'assets/da.svg', // Replace with your image URL
+      imgUrl: 'assets/da.svg',
     },
   ];
 
