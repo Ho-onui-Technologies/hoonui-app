@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import { UserButton } from "@clerk/nextjs";
+import { useAuth } from '@clerk/nextjs';
+import Link from 'next/link';
+
 
 const LandingHeader = () => {
+  const { sessionId } = useAuth();
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
       <div className="flex items-center">
@@ -28,7 +32,32 @@ const LandingHeader = () => {
             Contact
           </a>
         </div>
-        <UserButton afterSignOutUrl="/"/>
+        {(() => {
+          if (sessionId) {
+            return (
+              <></>
+            )
+          } else {
+            return (
+              <>
+                <Link
+                  href='/sign-in'
+                  className="text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-150"
+                >
+                  Sign-In
+                </Link>
+                <Link
+                  href='/sign-up'
+                  className="text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-150"
+                >
+                  Sign-Up
+                </Link>
+              </>
+            )
+          }
+          return null;
+        })()}
+        <UserButton afterSignOutUrl="/" />
       </nav>
 
     </section>
