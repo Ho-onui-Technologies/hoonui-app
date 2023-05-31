@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { UserButton } from "@clerk/nextjs";
 
 const LandingHeader = () => {
   return (
@@ -27,7 +28,9 @@ const LandingHeader = () => {
             Contact
           </a>
         </div>
+        <UserButton afterSignOutUrl="/"/>
       </nav>
+
     </section>
   )
 }
