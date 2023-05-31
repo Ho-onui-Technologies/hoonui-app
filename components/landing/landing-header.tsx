@@ -16,6 +16,7 @@ const LandingHeader = () => {
           alt="Icon"
         />
         &nbsp;
+        &nbsp;
         <h1 className="text-5xl md:text-5xl tracking-tighter leading-tight md:pr-8">
           Ho'onui Technologies LLC
         </h1>
@@ -35,7 +36,14 @@ const LandingHeader = () => {
         {(() => {
           if (sessionId) {
             return (
-              <></>
+              <>
+                <Link
+                  href='/dashboard'
+                  className="text-xl font-medium text-gray-900 hover:text-gray-700 transition-colors duration-150"
+                >
+                  Dashboard
+                </Link>
+              </>
             )
           } else {
             return (
