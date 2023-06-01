@@ -2,6 +2,7 @@ import { IncomingHttpHeaders } from "http";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Webhook, WebhookRequiredHeaders } from "svix";
 import { buffer } from "micro";
+import { createClient } from '@supabase/supabase-js'
 
 // Disable the bodyParser so we can access the raw
 // request body for verification.
@@ -12,6 +13,12 @@ export const config = {
 };
 
 const webhookSecret: string = process.env.WEBHOOK_SECRET || "";
+
+// Create a single supabase client for interacting with your database
+const supabaseUrl = process.env.SUPABASE_PROJECT_URL;
+const supabaseKey = process.env.SUPABASE_API_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default async function handler(
   req: NextApiRequestWithSvixRequiredHeaders,
@@ -33,8 +40,15 @@ export default async function handler(
   const eventType: EventType = evt.type;
   if (eventType === "user.created" || eventType === "user.updated") {
     const { id, ...attributes } = evt.data;
-    console.log(id)
-    console.log(attributes)
+    const { error } = await supabase
+        .from('users')
+        .upsert([
+        { id: id, ...attributes },
+        ], { returning: 'minimal' }); // This option is set to reduce the amount of data returned by the call
+
+    if (error) {
+        console.error('Error upserting data:', error);
+    }
   }
 
   res.json({});
