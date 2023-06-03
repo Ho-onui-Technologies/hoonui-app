@@ -4,6 +4,7 @@ import { Webhook, WebhookRequiredHeaders } from "svix";
 import { buffer } from "micro";
 import { createClient } from '@supabase/supabase-js';
 
+// Database connection
 const supabaseUrl = process.env.SUPABASE_PROJECT_URL;
 const supabaseKey = process.env.SUPABASE_API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
