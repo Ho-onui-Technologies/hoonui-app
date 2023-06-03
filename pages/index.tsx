@@ -1,9 +1,9 @@
-import Container from '../components/container'
-import Intro from '../components/landing/landing'
-import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
-import Post from '../interfaces/post'
+import Container from '../components/container';
+import Intro from '../components/landing/landing';
+import Layout from '../components/layout';
+import { getAllPosts } from '../lib/api';
+import Head from 'next/head';
+import Post from '../interfaces/post';
 
 type Props = {
   allPosts: Post[]
