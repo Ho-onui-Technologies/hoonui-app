@@ -24,6 +24,35 @@ export default function Dashboard() {
     fetchInvoices();
   }, [userId]);
 
+  const downloadInvoice = async (fileName) => {
+    try {
+      const response = await fetch(`/api/download/${fileName}.js`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      const signedUrl = data.signedUrl;
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = signedUrl;
+
+      // Set the downloadable file name
+      a.download = fileName;
+
+      // Append the anchor tag to the document body
+      document.body.appendChild(a);
+
+      // Trigger a click event on the anchor tag
+      a.click();
+
+      // Clean up
+      document.body.removeChild(a);
+
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
+  };
+
   // In case the user signs out while on the page.
   if (!isLoaded || !userId) {
     return null;
@@ -58,6 +87,7 @@ export default function Dashboard() {
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 <button
                   className="text-s font-small px-3 py-1.5 rounded-xl text-white m-0 bg-blue-500 hover:bg-blue-600 transition"
+                  onClick={() => downloadInvoice(user.name)}
                 >
                   Download
                 </button>
