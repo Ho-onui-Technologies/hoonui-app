@@ -1,4 +1,5 @@
 import Container from '../container'
+import Image from 'next/image'
 
 const Footer = () => {
   return (
@@ -6,8 +7,12 @@ const Footer = () => {
       <Container>
         <div className="py-28 flex-col md:flex-row flex items-center md:justify-between">
           <div className="w-full sm:w-auto text-center sm:text-left mb-4 sm:mb-0">
-            <h3 className="font-bold text-xl mb-2">Ho'onui Technologies LLC</h3>
-            <p>Located in Honolulu, HI</p>
+            <Image
+              src="/assets/Black logo - no background.png"
+              width={250}
+              height={250}
+              alt="Icon"
+            />
           </div>
           <div className="w-full sm:w-auto text-center sm:text-right">
             <h3 className="font-bold text-xl mb-2">
