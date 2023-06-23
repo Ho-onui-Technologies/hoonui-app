@@ -51,6 +51,7 @@ export default function Dashboard() {
       global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } },
     });
 
+    file_path = String(file_path).replace('.js', '');
     const { data, error } = await supabase.storage
       .from('hoonui_technologies')
       .createSignedUrl(`${userId}/${file_path}`, 1000,{
