@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 
 export default function Dashboard() {
   const [invoices, setInvoices] = useState(null);
+  const [invoiceSignedURL, setInvoiceSignedURL] = useState(null);
   const { isLoaded, userId, sessionId, getToken } = useAuth();
 
   async function getAllInvoices() {
@@ -36,6 +37,36 @@ export default function Dashboard() {
     setInvoices(data);
   }
 
+  async function downloadInvoice(file_path: string) {
+    const supabaseAccessToken = await getToken({ template: 'supabase' });
+    // Database connection
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_API_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error("Environment variables SUPABASE_PROJECT_URL or SUPABASE_API_KEY are not defined");
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } },
+    });
+
+    const { data, error } = await supabase.storage
+      .from('hoonui_technologies')
+      .createSignedUrl(`${userId}/${file_path}`, 1000,{
+        download: true,
+      });
+
+    if (error) {
+      console.error('Error fetching data: ', error);
+      return;
+    }
+    if (data && data.signedUrl) {
+      setInvoiceSignedURL(data.signedUrl);
+    }
+
+  }
+
   useEffect(() => {
     if (isLoaded && userId) {
       getAllInvoices().catch((error) => {
@@ -44,17 +75,13 @@ export default function Dashboard() {
     }
   }, [isLoaded, userId, getToken]);
 
-  const downloadInvoice = async (fileName) => {
+  const onDownloadClick = async (fileName) => {
     try {
-      const response = await fetch(`/api/download/${fileName}.js`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      const signedUrl = data.signedUrl;
+      downloadInvoice(fileName)
+
       const a = document.createElement('a');
       a.style.display = 'none';
-      a.href = signedUrl;
+      a.href = invoiceSignedURL;
 
       // Set the downloadable file name
       a.download = fileName;
@@ -107,7 +134,7 @@ export default function Dashboard() {
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                 <button
                   className="text-s font-small px-3 py-1.5 rounded-xl text-white m-0 bg-blue-500 hover:bg-blue-600 transition"
-                  onClick={() => downloadInvoice(user.name)}
+                  onClick={() => onDownloadClick(user.name)}
                 >
                   Download
                 </button>
