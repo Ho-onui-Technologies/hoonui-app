@@ -50,7 +50,7 @@ const Intro = () => {
             Our expertise ranges from data engineering to traditional software engineering.
             With a wealth of experience gained from working in Silicon Valley, our projects
             are united by a focus on enhancing business performance and innovation through
-            cutting-edge technology. At Ho'onui Technologies LLC, we strive to create lasting
+            cutting-edge technology. At Ho'onui, we strive to create lasting
             partnerships and deliver exceptional results for our clients.
           </p>
         </div>
