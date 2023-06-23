@@ -5,8 +5,8 @@ import { buffer } from "micro";
 import { createClient } from '@supabase/supabase-js';
 
 // Database connection
-const supabaseUrl = process.env.SUPABASE_PROJECT_URL;
-const supabaseKey = process.env.SUPABASE_API_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Disable the bodyParser so we can access the raw
@@ -54,12 +54,12 @@ export default async function handler(
       .from('users')
       .upsert([
         {
-          user_id: id,
+          id: id,
           first_name: firstName,
           last_name: lastName,
           email_address: emailAddress
         },
-      ], { onConflict: 'user_id' })
+      ], { onConflict: 'id' })
 
     if (error) {
       console.error('Error upserting user:', error)

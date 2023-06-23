@@ -2,27 +2,47 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '@clerk/nextjs';
 import DashboardHeader from '../components/dashboard/dashboard-header';
 import Container from '../components/container';
+import { createClient } from '@supabase/supabase-js';
 
 export default function Dashboard() {
   const [invoices, setInvoices] = useState(null);
   const { isLoaded, userId, sessionId, getToken } = useAuth();
 
-  useEffect(() => {
-    const fetchInvoices = async () => {
-      try {
-        const response = await fetch(`/api/invoices/${userId}`);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setInvoices(data);
-      } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
-      }
-    };
+  async function getAllInvoices() {
+    const supabaseAccessToken = await getToken({ template: 'supabase' });
+    // Database connection
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_API_KEY;
 
-    fetchInvoices();
-  }, [userId]);
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error("Environment variables SUPABASE_PROJECT_URL or SUPABASE_API_KEY are not defined");
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } },
+    });
+
+    const { data, error } = await supabase
+      .from('invoices')
+      .select('*')
+      .eq('user_id', userId);
+
+    if (error) {
+      console.error('Error fetching data: ', error);
+      return;
+    }
+
+    // @ts-ignore
+    setInvoices(data);
+  }
+
+  useEffect(() => {
+    if (isLoaded && userId) {
+      getAllInvoices().catch((error) => {
+        console.error("An error occurred:", error);
+      });
+    }
+  }, [isLoaded, userId, getToken]);
 
   const downloadInvoice = async (fileName) => {
     try {
