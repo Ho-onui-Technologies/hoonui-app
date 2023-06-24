@@ -133,12 +133,16 @@ export default function Dashboard() {
                 </td>
               ))}
               <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                <button
-                  className="text-s font-small px-3 py-1.5 rounded-xl text-white m-0 bg-blue-500 hover:bg-blue-600 transition"
-                  onClick={() => onDownloadClick(user.name)}
+                <a
+                  href="#"
+                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onDownloadClick(user.name);
+                  }}
                 >
                   Download
-                </button>
+                </a>
               </td>
             </tr>
           ))}
