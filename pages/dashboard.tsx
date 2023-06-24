@@ -54,7 +54,7 @@ export default function Dashboard() {
     file_path = String(file_path).replace('.js', '');
     const { data, error } = await supabase.storage
       .from('hoonui_technologies')
-      .createSignedUrl(`${userId}/${file_path}`, 1000,{
+      .createSignedUrl(`${userId}/${file_path}`, 1000, {
         download: true,
       });
 
