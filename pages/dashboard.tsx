@@ -6,7 +6,6 @@ import { createClient } from '@supabase/supabase-js';
 
 export default function Dashboard() {
   const [invoices, setInvoices] = useState(null);
-  const [invoiceSignedURL, setInvoiceSignedURL] = useState(null);
   const { isLoaded, userId, sessionId, getToken } = useAuth();
 
   async function getAllInvoices() {
@@ -63,7 +62,7 @@ export default function Dashboard() {
       return;
     }
     if (data && data.signedUrl) {
-      setInvoiceSignedURL(data.signedUrl);
+      return data.signedUrl;
     }
 
   }
@@ -78,28 +77,32 @@ export default function Dashboard() {
 
   const onDownloadClick = async (fileName) => {
     try {
-      await downloadInvoice(fileName)  // wait for this to finish
-  
-      // now the invoiceSignedURL state should have been updated, so you can proceed with the download
+      const signedUrl = await downloadInvoice(fileName); // get the signed URL directly
+
+      if (!signedUrl) {
+        console.error('There has been a problem with your fetch operation: signedUrl is null');
+        return;
+      }
+
       const a = document.createElement('a');
       a.style.display = 'none';
-      a.href = invoiceSignedURL;
-  
+      a.href = signedUrl; // use the signed URL directly
+
       // Set the downloadable file name
       a.download = fileName;
-  
+
       // Append the anchor tag to the document body
       document.body.appendChild(a);
-  
+
       // Trigger a click event on the anchor tag
       a.click();
-  
+
       // Clean up
       document.body.removeChild(a);
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
-  };  
+  };
 
   // In case the user signs out while on the page.
   if (!isLoaded || !userId) {
