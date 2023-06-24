@@ -144,12 +144,14 @@ export default function Dashboard() {
   return (
     <Container>
       <DashboardHeader />
-      <div
-        className="rounded-lg bg-neutral-100 p-6 text-neutral-700 shadow-lg">
-        <h2 className="mb-5 text-3xl font-semibold">Hello {clientInfo[0]?.client_name}</h2>
-        <hr className="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100" />
-        <h2 className="mb-5 text-xl font-semibold">Current Status: {clientInfo[0]?.current_status}</h2>
-      </div>
+      {clientInfo?.map(info => (
+          <div className="rounded-lg bg-neutral-100 p-6 text-neutral-700 shadow-lg">
+            <h2 className="mb-5 text-3xl font-semibold">Hello {info.client_name}</h2>
+            <hr className="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100" />
+            <h2 className="mb-5 text-xl font-semibold">Current Status: {info.current_status}</h2>
+          </div>
+        ))
+      }
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-neutral-100">
           <tr>
