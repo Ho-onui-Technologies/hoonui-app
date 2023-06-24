@@ -6,7 +6,36 @@ import { createClient } from '@supabase/supabase-js';
 
 export default function Dashboard() {
   const [invoices, setInvoices] = useState(null);
+  const [clientInfo, setClientInfo] = useState(null);
   const { isLoaded, userId, sessionId, getToken } = useAuth();
+
+  async function getClientInfo() {
+    const supabaseAccessToken = await getToken({ template: 'supabase' });
+    // Database connection
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_API_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error("Environment variables SUPABASE_PROJECT_URL or SUPABASE_API_KEY are not defined");
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } },
+    });
+
+    const { data, error } = await supabase
+      .from('clients')
+      .select('*')
+      .eq('user_id', userId);
+
+    if (error) {
+      console.error('Error fetching data: ', error);
+      return;
+    }
+
+    // @ts-ignore
+    setClientInfo(data);
+  }
 
   async function getAllInvoices() {
     const supabaseAccessToken = await getToken({ template: 'supabase' });
@@ -72,6 +101,9 @@ export default function Dashboard() {
       getAllInvoices().catch((error) => {
         console.error("An error occurred:", error);
       });
+      getClientInfo().catch((error) => {
+        console.error("An error occurred:", error);
+      });
     }
   }, [isLoaded, userId, getToken]);
 
@@ -112,8 +144,14 @@ export default function Dashboard() {
   return (
     <Container>
       <DashboardHeader />
+      <div
+        className="rounded-lg bg-neutral-100 p-6 text-neutral-700 shadow-lg">
+        <h2 className="mb-5 text-3xl font-semibold">Hello {clientInfo?.client_name}</h2>
+        <hr className="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100" />
+        <h2 className="mb-5 text-xl font-semibold">Current Status: {clientInfo?.curent_status}</h2>
+      </div>
       <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+        <thead className="bg-neutral-100">
           <tr>
             {/* header row */}
             {["Invoice Number", "Name", "Date of Issue", "Hours", "Action"].map((header) => (
