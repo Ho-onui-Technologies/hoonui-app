@@ -144,7 +144,7 @@ export default function Dashboard() {
   return (
     <Container>
       <DashboardHeader />
-      {clientInfo.map(info => (
+      {clientInfo?.map(info => (
           <div className="rounded-lg bg-neutral-100 p-6 text-neutral-700 shadow-lg">
             <h2 className="mb-5 text-3xl font-semibold">Hello {info.client_name}</h2>
             <hr className="my-6 h-0.5 border-t-0 bg-neutral-200 opacity-100" />
