@@ -78,28 +78,28 @@ export default function Dashboard() {
 
   const onDownloadClick = async (fileName) => {
     try {
-      downloadInvoice(fileName)
-
+      await downloadInvoice(fileName)  // wait for this to finish
+  
+      // now the invoiceSignedURL state should have been updated, so you can proceed with the download
       const a = document.createElement('a');
       a.style.display = 'none';
       a.href = invoiceSignedURL;
-
+  
       // Set the downloadable file name
       a.download = fileName;
-
+  
       // Append the anchor tag to the document body
       document.body.appendChild(a);
-
+  
       // Trigger a click event on the anchor tag
       a.click();
-
+  
       // Clean up
       document.body.removeChild(a);
-
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
-  };
+  };  
 
   // In case the user signs out while on the page.
   if (!isLoaded || !userId) {
