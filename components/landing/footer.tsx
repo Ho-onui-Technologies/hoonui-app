@@ -9,8 +9,8 @@ const Footer = () => {
           <div className="w-full sm:w-auto text-center sm:text-left mb-4 sm:mb-0">
             <Image
               src="/assets/Black logo - no background.png"
-              width={250}
-              height={250}
+              width={300}
+              height={300}
               alt="Icon"
             />
           </div>
