@@ -6,7 +6,11 @@ import '../styles/index.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider {...pageProps}>
+    <ClerkProvider appearance={{
+      elements: {
+        footer: "hidden",
+      },
+    }}>
       <Component {...pageProps} />
       <Analytics />
     </ClerkProvider>
