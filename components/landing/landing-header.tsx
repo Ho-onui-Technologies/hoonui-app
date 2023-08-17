@@ -46,9 +46,9 @@ const LandingHeader = () => {
                     Contact
                   </a>
                 </div>
-                <div className="border w-fit rounded-xl m-5 shadow-sm">
-                  <Link href='/sign-in' className="text-xl font-medium px-4 py-2 rounded-l-xl text-white m-0 bg-blue-500 hover:bg-blue-600 transition">Login</Link><Link href='/sign-up' className="text-xl font-medium px-4 py-2 rounded-r-xl bg-neutral-50 hover:bg-neutral-100 transition">Register</Link>
-                </div>
+                <Link href="/sign-in">
+                  <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-xl px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+                </Link>
               </>
             )
           }
