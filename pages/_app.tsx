@@ -12,6 +12,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       },
     }}>
       <Component {...pageProps} />
+      {/* Vercel Analytics */}
       <Analytics />
     </ClerkProvider>
   );
