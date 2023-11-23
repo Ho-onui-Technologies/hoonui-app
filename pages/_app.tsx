@@ -6,11 +6,7 @@ import '../styles/index.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ClerkProvider appearance={{
-      elements: {
-        footer: "hidden",
-      },
-    }}>
+    <ClerkProvider>
       <Component {...pageProps} />
       {/* Vercel Analytics */}
       <Analytics />

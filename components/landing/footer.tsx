@@ -1,40 +1,35 @@
-import Container from '../container'
-import Image from 'next/image'
+import React from 'react';
+import { FiSend } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-200 border-t border-neutral-200">
-      <Container>
-        <div className="py-28 flex-col md:flex-row flex items-center md:justify-between">
-          <div className="w-full sm:w-auto text-center sm:text-left mb-4 sm:mb-0">
-            <Image
-              src="/assets/Black logo - no background.png"
-              width={400}
-              height={400}
-              alt="Icon"
-            />
-          </div>
-          <div className="w-full sm:w-auto text-center sm:text-right">
-            <h3 className="font-bold text-xl mb-2">
-              Contact Us
-            </h3>
-            <p className="mb-1">
-              <span className="font-bold">Phone:</span> (808) 348-5018
-            </p>
-            <p>
-              <span className="font-bold">Email:</span>{' '}
-              <a
-                href="mailto:info@hoonuitechnologies.dev"
-                className="text-blue-400 hover:text-blue-600"
-              >
-                info@hoonuitechnologies.dev
-              </a>
-            </p>
+    <footer className="pt-10 bg-slate-700">
+      <div className="max-w-screen-xl mx-auto px-4 text-white md:px-8">
+        <div className="space-y-6 sm:max-w-md sm:mx-auto sm:text-center">
+          <img
+            src="/assets/White logo - no background.png"
+            className="max-w-l sm:mx-auto"
+          />
+          <p>
+            Are you an existing client? Log in here. New to us? Let's connect!
+          </p>
+          <div className="items-center gap-x-3 space-y-3 sm:flex sm:justify-center sm:space-y-0">
+            <a href="/signin" className="block py-2 px-4 text-center text-white font-medium bg-indigo-500 duration-150 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg shadow-lg hover:shadow-none">
+              Login
+            </a>
+            <a href="mailto:info@hoonuitechnologies.dev?subject=Inquiry%20About%20Software%20Consulting%20Services" className="flex items-center justify-center gap-x-2 py-2 px-4 text-white hover:text-white font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex">
+              <FiSend />
+              Contact us
+            </a>
+
           </div>
         </div>
-      </Container>
+        <div className="mt-10 py-10 border-t text-center">
+          <p>Ho'onui Technologies LLC, 2023.</p>
+        </div>
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
