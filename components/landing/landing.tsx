@@ -3,10 +3,13 @@ import Hero from "./hero";
 import Features from "./features";
 import { useState } from 'react';
 import { Link, animateScroll as scroll } from "react-scroll";
+import { UserButton } from "@clerk/nextjs";
+import { useAuth } from '@clerk/nextjs';
 
 
 const Intro = () => {
-  const [state, setState] = useState(false)
+  const [state, setState] = useState(false);
+  const { sessionId } = useAuth();
 
   // Replace javascript:void(0) paths with your paths
   const navigation = [
@@ -67,18 +70,38 @@ const Intro = () => {
                 })
               }
               <span className='hidden w-px h-6 bg-gray-300 md:block'></span>
-              <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
-                <li>
-                  <a href="/sign-up" className="block py-3 text-center text-gray-700 hover:text-indigo-500 border rounded-lg md:border-none">
-                    Sign up
-                  </a>
-                </li>
-                <li>
-                  <a href="sign-in" className="block py-3 px-4 font-medium text-center text-white bg-indigo-500 hover:bg-indigo-400 active:bg-indigo-500 active:shadow-none rounded-lg shadow md:inline">
-                    Login
-                  </a>
-                </li>
-              </div>
+              {(() => {
+                if (sessionId) {
+                  return (
+                    <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
+                      <li>
+                        <a href="/dashboard" className="block py-3 px-4 font-medium text-center text-white bg-indigo-500 hover:bg-indigo-400 active:bg-indigo-500 active:shadow-none rounded-lg shadow md:inline">
+                          Dashboard
+                        </a>
+                      </li>
+                      <li>
+                        <UserButton afterSignOutUrl="/" />
+                      </li>
+                    </div>
+                  )
+                } else {
+                  return (
+                    <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
+                      <li>
+                        <a href="/sign-up" className="block py-3 text-center text-gray-700 hover:text-indigo-500 border rounded-lg md:border-none">
+                          Sign up
+                        </a>
+                      </li>
+                      <li>
+                        <a href="sign-in" className="block py-3 px-4 font-medium text-center text-white bg-indigo-500 hover:bg-indigo-400 active:bg-indigo-500 active:shadow-none rounded-lg shadow md:inline">
+                          Login
+                        </a>
+                      </li>
+                    </div>
+                  )
+                }
+                return null;
+              })()}
             </ul>
           </div>
         </div>
