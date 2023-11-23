@@ -16,3 +16,19 @@ To get a local copy up and running, follow these simple steps.
 - npm
   ```sh
   npm install npm@latest -g
+  ```
+
+### Installation
+1. Clone the repo
+  ```sh
+  git clone [Your Repo URL]
+  ```
+2. Install NPM packages
+  ```sh
+  npm i 
+  ```
+3. Run development mode:
+  ```sh
+  npm run dev
+  ```
+
