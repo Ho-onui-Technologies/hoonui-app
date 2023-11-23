@@ -69,12 +69,12 @@ const Intro = () => {
               <span className='hidden w-px h-6 bg-gray-300 md:block'></span>
               <div className='space-y-3 items-center gap-x-6 md:flex md:space-y-0'>
                 <li>
-                  <a href="/signup" className="block py-3 text-center text-gray-700 hover:text-indigo-500 border rounded-lg md:border-none">
+                  <a href="/sign-up" className="block py-3 text-center text-gray-700 hover:text-indigo-500 border rounded-lg md:border-none">
                     Sign up
                   </a>
                 </li>
                 <li>
-                  <a href="signin" className="block py-3 px-4 font-medium text-center text-white bg-indigo-500 hover:bg-indigo-400 active:bg-indigo-500 active:shadow-none rounded-lg shadow md:inline">
+                  <a href="sign-in" className="block py-3 px-4 font-medium text-center text-white bg-indigo-500 hover:bg-indigo-400 active:bg-indigo-500 active:shadow-none rounded-lg shadow md:inline">
                     Login
                   </a>
                 </li>
