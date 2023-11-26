@@ -15,14 +15,9 @@ export default function Dashboard() {
     { title: "Overview", path: "overview" },
     { title: "Invoices", path: "invoices" },
     { title: "Billing", path: "billing" },
-    { title: "Plans", path: "plans" },
   ];
 
-  // Replace javascript:void(0) paths with your paths
   const navigation = [
-    { title: "Pro version", path: "javascript:void(0)" },
-    { title: "Upgrade", path: "javascript:void(0)" },
-    { title: "Support", path: "javascript:void(0)" },
   ]
 
   const [activeSubmenu, setActiveSubmenu] = useState(submenuNav[0].path);
@@ -123,6 +118,7 @@ export default function Dashboard() {
         console.error("An error occurred:", error);
       });
     }
+    console.log(clientInfo)
   }, [isLoaded, userId, getToken]);
 
   const onDownloadClick = async (fileName) => {
