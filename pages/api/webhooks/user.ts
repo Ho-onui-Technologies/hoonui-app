@@ -57,8 +57,7 @@ export default async function handler(
           id: id,
           first_name: firstName,
           last_name: lastName,
-          email_address: emailAddress,
-          organization_id: null
+          email_address: emailAddress
         },
       ], { onConflict: 'id' })
 
