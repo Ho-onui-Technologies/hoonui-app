@@ -32,3 +32,15 @@ To get a local copy up and running, follow these simple steps.
   npm run dev
   ```
 
+### Supabase
+Overview
+Our project leverages Supabase for backend database needs, offering scalable, efficient, and easy-to-manage data solutions.
+
+#### Integration with Clerk Authentication
+Webhooks Connection: We've integrated Clerk's authentication system with our Supabase databases using webhooks, ensuring real-time synchronization between user authentication states and our database records.
+Seamless Sync: This setup guarantees immediate updates in our databases corresponding to user activities in Clerk, like sign-ups or profile changes.
+
+#### Database Structure
+![Local Image](public/assets/software_diagram_white_background.png)
+
+
