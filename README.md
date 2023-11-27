@@ -41,6 +41,6 @@ Webhooks Connection: We've integrated Clerk's authentication system with our Sup
 Seamless Sync: This setup guarantees immediate updates in our databases corresponding to user activities in Clerk, like sign-ups or profile changes.
 
 #### Database Structure
-![Local Image](public/assets/software_diagram_white_background.png)
+![Local Image](public/assets/db_er_diagram_white_background.png)
 
 
