@@ -5,7 +5,7 @@
 This repository contains the code for a full-stack application designed for a software consulting practice. The app features a responsive front-end built with NextJS, TypeScript, & Tailwind, and a robust backend powered by Supabase. It integrates Clerk for user authentication and uses webhooks to automate database synchronization.
 
 ## Software Architecture
-![db_er_diagram](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---u7k3G_YwjC1iHfNFhXlgM---figure---6_jW1jlCro7d3j78c-LUvw.png "db_er_diagram")
+![db_er_diagram](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---ALvPnND5Civ5mMLxrj1z----figure---6_jW1jlCro7d3j78c-LUvw.png "db_er_diagram")
 
 ## Built With
 - [![Next][Next.js]][Next-url]: React Framework
@@ -48,6 +48,18 @@ Our project leverages Supabase for our cloud-based database. Integration with Ne
 [Supabase]: https://img.shields.io/badge/Supabase-181818?style=for-the-badge&logo=supabase&logoColor=white
 
 [Supabase-url]: https://supabase.com/
+
+
+
+[PostgreSQL]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+
+[PostgreSQL-url]: https://www.postgresql.org/
+
+
+
+[Vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+
+[Vercel-url]: https://vercel.com/
 
 
 <!--- Eraser file: https://app.eraser.io/workspace/SUU0xXIhVG8Q3muZH5DH --->
