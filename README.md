@@ -4,8 +4,7 @@
 ## Overview
 This repository contains the code for a full-stack application designed for a software consulting practice. The app features a responsive front-end built with NextJS, TypeScript, & Tailwind, and a robust backend powered by Supabase. It integrates Clerk for user authentication and uses webhooks to automate database synchronization.
 
-## Software Architecture
-![db_er_diagram](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---ALvPnND5Civ5mMLxrj1z----figure---6_jW1jlCro7d3j78c-LUvw.png "db_er_diagram")
+---
 
 ## Built With
 - [![Next][Next.js]][Next-url]: React Framework
@@ -14,18 +13,36 @@ This repository contains the code for a full-stack application designed for a so
 - [![Supabase][Supabase]][Supabase-url]: Cloud Database/Backend
 - [![PostgreSQL][PostgreSQL]][PostgreSQL-url]: Database used in Supabase
 - [![Vercel][Vercel]][Vercel-url]: Frontend infrastructure and hosting
+---
+
 ## Features
 - **Responsive Front-End Design**: Built using NextJS and TypeScript, ensuring a seamless user experience across various devices and browsers.
 - **Secure Backend**: Utilizes Supabase for backend operations, providing a reliable and scalable cloud-based database.
 - **User Authentication**: Integrated with Clerk to offer secure user login functionalities.
 - **Automated Workflows**: Webhooks are used to sync databases between Clerk and Supabase, enhancing data consistency and operational efficiency.
-### Clerk: User Authentication
-We outsource user authentication to a service called Clerk. Clerk provides out of the box support for user authentication and management. In particular, we use Clerk for their allow-list feature which allows to only limit access to our application to only verified email addresses. 
+---
 
+### Backend Architecture
+![db_er_diagram](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---PpDPYV0cN2vwHtHnTiNvL---figure---6_jW1jlCro7d3j78c-LUvw.png "db_er_diagram")
+
+#### Clerk: User Authentication
+We outsource user authentication to a service called Clerk. Clerk provides out of the box support for user authentication and management.
+
+Clerk Use Cases:
+
+- Allow-list: A feature that allows us to limit access to our application to only verified email addresses. 
+- Middleware: Allows us to set public and private routes by controlling the flow of requests through our application.
 - Webhooks Connection: We've integrated Clerk's authentication system with our Supabase databases using webhooks, ensuring real-time synchronization between user authentication states and our database records. This setup guarantees immediate updates in our databases corresponding to user activities in Clerk, like sign-ups or profile changes.
 - Event processing code can be found in the pages/api/webhooks directory
-### Supabase
-Our project leverages Supabase for our cloud-based database. Integration with NextJS is as easy as adding a project URL and API key to environment variables. It also easily syncs with Clerk through the use of webhooks.
+#### Supabase: Cloud Backend
+Our project leverages Supabase for our cloud-based PostgreSQL database. Integration with NextJS is as easy as adding a project URL and API key to environment variables. It also easily syncs with Clerk through the use of webhooks.
+
+---
+
+### Frontend Architecture
+![Frontend Application Workflow](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---l9wVnT4aXmgZgbUPLL3tq---figure---9CDm3d4AK-vUbEeFVZUpLQ.png "Frontend Application Workflow")
+
+
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 
