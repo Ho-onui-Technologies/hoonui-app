@@ -23,7 +23,7 @@ This repository contains the code for a full-stack application designed for a so
 ---
 
 ### Backend Architecture
-![Backend Architecture](undefined "Backend Architecture")
+![Backend Architecture](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---lq1EYedtXn4KEWWOngALh---figure---6_jW1jlCro7d3j78c-LUvw.png "Backend Architecture")
 
 #### Clerk: User Authentication
 We outsource user authentication to a service called Clerk. Clerk provides out of the box support for user authentication and management.
