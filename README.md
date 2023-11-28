@@ -23,7 +23,7 @@ This repository contains the code for a full-stack application designed for a so
 ---
 
 ### Backend Architecture
-![Backend Architecture](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---lq1EYedtXn4KEWWOngALh---figure---6_jW1jlCro7d3j78c-LUvw.png "Backend Architecture")
+![Backend Architecture](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---umKGcupEY6pt5FV79Sbqz---figure---6_jW1jlCro7d3j78c-LUvw.png "Backend Architecture")
 
 #### Clerk: User Authentication
 We outsource user authentication to a service called Clerk. Clerk provides out of the box support for user authentication and management.
@@ -42,7 +42,7 @@ Our project leverages Supabase for our cloud-based PostgreSQL database. Integrat
 ### Frontend Architecture
 The frontend of our application is designed to provide an intuitive and responsive user experience, leveraging the strengths of NextJS, Tailwind CSS, and Vercel hosting.
 
-![Frontend Application Workflow](undefined "Frontend Application Workflow")
+![Frontend Application Workflow](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---hReqdYCIzvILxkNVyqNzE---figure---9CDm3d4AK-vUbEeFVZUpLQ.png "Frontend Application Workflow")
 
 #### NextJS: React Framework
 NextJS is the backbone of our frontend architecture. As a React framework, it offers numerous advantages for building a modern web application:
