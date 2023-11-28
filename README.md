@@ -23,7 +23,7 @@ This repository contains the code for a full-stack application designed for a so
 ---
 
 ### Backend Architecture
-![db_er_diagram](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---PpDPYV0cN2vwHtHnTiNvL---figure---6_jW1jlCro7d3j78c-LUvw.png "db_er_diagram")
+![db_er_diagram](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---oV58BthdCYvJjHkCa9DjH---figure---6_jW1jlCro7d3j78c-LUvw.png "db_er_diagram")
 
 #### Clerk: User Authentication
 We outsource user authentication to a service called Clerk. Clerk provides out of the box support for user authentication and management.
@@ -40,9 +40,25 @@ Our project leverages Supabase for our cloud-based PostgreSQL database. Integrat
 ---
 
 ### Frontend Architecture
-![Frontend Application Workflow](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---l9wVnT4aXmgZgbUPLL3tq---figure---9CDm3d4AK-vUbEeFVZUpLQ.png "Frontend Application Workflow")
+The frontend of our application is designed to provide an intuitive and responsive user experience, leveraging the strengths of NextJS, Tailwind CSS, and Vercel hosting.
 
+![Frontend Application Workflow](/.eraser/SUU0xXIhVG8Q3muZH5DH___sKBE7gxtknX4C1dnV5iZm5p6Y362___---figure---hyGKyh2MfTKMa0DLD6DFf---figure---9CDm3d4AK-vUbEeFVZUpLQ.png "Frontend Application Workflow")
 
+#### NextJS: React Framework
+NextJS is the backbone of our frontend architecture. As a React framework, it offers numerous advantages for building a modern web application:
+
+- **Server-side Rendering**: Enhances SEO and improves load times by rendering pages on the server.
+- **API Routes**: Simplifies backend communication by allowing API endpoints to be written alongside front-end code.
+- **Built-in Routing**: Facilitates easy creation of new pages with its file-based routing system.
+NextJS's integration with React allows us to use React's powerful features and ecosystem, making our app more dynamic and engaging.
+
+#### Vercel: Hosting and Infrastructure
+Our application is hosted on Vercel, chosen for its:
+
+- **Ease of Deployment**: Vercel offers seamless integration with NextJS, enabling effortless deployments directly from our repository.
+- **Continuous Integration/Continuous Deployment (CI/CD)**: Automatically builds and deploys our application upon each git commit, simplifying the development workflow.
+- **Scalability**: Automatically scales our application to meet traffic demands without the need for manual intervention.
+By leveraging Vercel's capabilities, we ensure that our application is always accessible, fast, and reliable.
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 
